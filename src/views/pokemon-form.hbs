@@ -2,19 +2,19 @@
 <div class="container mt-3">
   <h1>
     {{#if id}}
-      Actualizando el artículo "{{title}}" ({{id}})
+      Actualizando el Pokémon "{{title}}" ({{id}})
     {{else}}
-      Crear un nuevo artículo
+      Crear un nuevo Pokémon
     {{/if}}
   </h1>
   <!--
     Este formulario se usará tanto para edición como creación, este if nos dice que si viene un id, entonces será un update, si no, será un create.
     Para el action, si viene un id será un post a /articles/:id/update, si no, será un post a /articles/create.
   -->
-  <form action="/articles/{{#if id}}{{id}}/update{{else}}create{{/if}}" method="POST">
+  <form action="/pokemon/{{#if id}}{{id}}/update{{else}}create{{/if}}" method="POST">
     <div class="mb-3">
       <label for="title" class="form-label">Título</label>
-      <input type="text" class="form-control" name="title" aria-describedby="titleHelp" required="true" value="{{title}}">
+      <input type="text" class="form-control" name="title" aria-describedby="titleHelp" required="true" value="{{pkm_name}}">
       <div id="titleHelp" class="form-text">Utiliza un título ingenioso</div>
     </div>
     <div class="mb-3">

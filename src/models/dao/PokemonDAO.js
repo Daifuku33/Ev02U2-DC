@@ -1,4 +1,4 @@
-class ArticlesDAO {
+class PokemonDAO {
   constructor (dbClient) {
     this.db = dbClient
     this.getAll = this.getAll.bind(this)
@@ -39,4 +39,4 @@ class ArticlesDAO {
   }
 }
 
-module.exports = ArticlesDAO
+module.exports = PokemonDAO

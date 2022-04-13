@@ -1,20 +1,22 @@
 {{> navbar}}
 <div class="container mt-3">
   <header class="my-5">
-    <h1>Bienvenido a mi blog</h1>
+    <h1>Pokémon PC online</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies maximus mi sed faucibus. Donec auctor, dui nec varius condimentum, tellus mauris lobortis libero, vel finibus neque leo vel nisi. Nullam tellus magna, porttitor nec dolor non, iaculis facilisis felis. Mauris pharetra accumsan augue, dapibus blandit nisi facilisis vitae. Suspendisse ultrices egestas libero sit amet sodales. Suspendisse eu velit id urna eleifend egestas. Etiam sit amet quam luctus, interdum nulla sed, faucibus nisl.
+      Esta APP es un libro de registro donde puedes guardar a los Pokémon que tienes guardados en el pc sin necesidad de ir y volver a ver la PC del juego! Se requiere que actualices a mano constantemente ya que a la dev no de la el conocmiento, muchas gracias! :D
     </p>
-    <a href="/about">Conóceme</a>
+    <a href="/about">Más sobre mi</a>
   </header>
   <hr>
-  <h3 class="mt-5 mb-3">Últimos artículos</h3>
-  {{#each articles}}
+  <h3 class="mt-5 mb-3">Últimos Pokémon</h3>
+  {{#each pokemon}}
     <div class="card mb-3">
       <div class="card-body">
-        <h5 class="card-title">{{this.title}}</h5>
-        <p class="card-text">{{this.content}}</p>
-        <a href="/articles/{{this.id}}" class="btn btn-primary btn-sm">Leer más</a>
+        <h5 class="card-pokemon-name">{{this.pkm_name}}</h5>
+        <h5 class="card-pokemon-level">{{this.pkm_level}}</h5>
+        <h5 class="card-pokemon-type1">{{this.type_1}}</h5>
+        <h5 class="card-pokemon-type2">{{this.type_2}}</h5>
+        <a href="/pokemon/{{this.id}}" class="btn btn-primary btn-sm">Ver más</a>
       </div>
     </div>
   {{/each}}

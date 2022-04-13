@@ -1,5 +1,5 @@
 const express = require('express')
-const ArticlesController = require('./controllers/ArticlesController')
+const PokemonController = require('./controllers/PokemonController')
 const PageController = require('./controllers/PageController')
 const SqlClient = require('./lib/SqlClient')
 
@@ -10,21 +10,21 @@ const sqlClient = new SqlClient()
 
 // Controllers
 const pageController = new PageController()
-const articlesController = new ArticlesController(sqlClient)
+const pokemonController = new PokemonController(sqlClient)
 
 // Routes
-router.get('/', articlesController.renderHomeWithArticles)
+router.get('/', pokemonController.renderHomeWithPokemon)
 router.get('/about', pageController.renderAbout)
 
-router.get('/articles/create', articlesController.renderArticleCreationForm)
-router.post('/articles/create', articlesController.insertAndRenderArticle)
+router.get('/pokemon/create', pokemonController.renderPokemonCreationForm)
+router.post('/pokemon/create', pokemonController.insertAndRenderPokemon)
 
-router.get('/articles/:id', articlesController.renderSingleArticle)
+router.get('/pokemon/:id', pokemonController.renderSinglePokemon)
 
-router.get('/articles/:id/update', articlesController.renderArticleUpdateForm)
-router.post('/articles/:id/update', articlesController.updateAndRenderArticle)
+router.get('/pokemon/:id/update', pokemonController.renderPokemonUpdateForm)
+router.post('/pokemon/:id/update', pokemonController.updateAndRenderPokemon)
 
-router.post('/articles/:id/delete', articlesController.deleteArticleAndRenderResponse)
+router.post('/pokemon/:id/delete', pokemonController.deletePokemonAndRenderResponse)
 
 router.get('*', pageController.renderNotFound)
 

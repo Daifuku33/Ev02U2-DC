@@ -24,3 +24,11 @@ INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, user_id) VALUES (
   1, "Pikachu", 15, "Electric", 1
 );
 
+INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, user_id) VALUES (
+  1, "Pichu", 06, "Electric", 1
+);
+
+INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, type_2, user_id) VALUES (
+  3, "Lucario", 47, "Fighting", "Steel", 1
+);
+
