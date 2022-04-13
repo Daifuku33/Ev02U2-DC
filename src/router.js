@@ -16,8 +16,8 @@ const pokemonController = new PokemonController(sqlClient)
 router.get('/', pokemonController.renderHomeWithPokemon)
 router.get('/about', pageController.renderAbout)
 
-router.get('/pokemon/create', pokemonController.renderPokemonCreationForm)
-router.post('/pokemon/create', pokemonController.insertAndRenderPokemon)
+router.get('/pokemon/add', pokemonController.renderPokemonCreationForm)
+router.post('/pokemon/add', pokemonController.insertAndRenderPokemon)
 
 router.get('/pokemon/:id', pokemonController.renderSinglePokemon)
 
