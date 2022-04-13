@@ -9,31 +9,31 @@ class ArticlesDAO {
   }
 
   async getAll () {
-    const response = await this.db.query('SELECT id, title, content FROM articles')
+    const response = await this.db.query('SELECT id, pkm_name, pkm_level, type_1, type_2 FROM pokemon')
     const rows = response[0]
     return rows
   }
 
   async getById (id) {
-    const response = await this.db.query('SELECT id, title, content FROM articles WHERE id = ?', [id])
+    const response = await this.db.query('SELECT id, pkm_name, pkm_level, type_1, type_2 FROM pokemon WHERE id = ?', [id])
     const rows = response[0]
     return rows[0]
   }
 
-  async create (article) {
-    const response = await this.db.query('INSERT INTO articles (title, content) VALUES (?, ?)', [article.title, article.content])
+  async create (pokemon) {
+    const response = await this.db.query('INSERT INTO pokemon (pkm_name, pkm_level, type_1, type_2) VALUES (?, ?, ?, ?)', [pokemon.pkm_name, pokemon.pkm_level, pokemon.type_1, pokemon.type_2])
     const result = response[0]
     return result.insertId
   }
 
-  async update (article) {
-    const response = await this.db.query('UPDATE articles SET title = ?, content = ? WHERE id = ?', [article.title, article.content, article.id])
+  async update (pokemon) {
+    const response = await this.db.query('UPDATE pokemon SET pkm_name = ?, pkm_level = ?, type_1 = ?, type_2 = ? WHERE id = ?', [pokemon.pkm_name, pokemon.pkm_level, pokemon.type_1, pokemon.type_2])
     const result = response[0]
     return result
   }
 
   async delete (id) {
-    const response = await this.db.query('DELETE FROM articles WHERE id = ?', [id])
+    const response = await this.db.query('DELETE FROM pokemon WHERE id = ?', [id])
     const result = response[0]
     return result
   }

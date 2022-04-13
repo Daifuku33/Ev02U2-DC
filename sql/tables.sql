@@ -5,15 +5,22 @@ CREATE TABLE users (
 	email VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE articles (
+CREATE TABLE pokemon (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	title VARCHAR(255) NOT NULL,
-	content TEXT,
-	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	pkm_name VARCHAR(50) NOT NULL,
+	pkm_level INT NOT NULL,
+	type_1 VARCHAR(50) NOT NULL,
+	type_2 VARCHAR(50),
+	added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	user_id INT,
 	KEY user_id_idx(user_id)
 );
 
 INSERT INTO users (first_name, last_name, email) VALUES (
-	"Pepe", "Frog", "contacto@pepeblog.com"
+	1, "Diana", "Cerda", "diana@pokemon.cl"
 );
+
+INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, user_id) VALUES (
+  1, "Pikachu", 15, "Electric", 1
+);
+
