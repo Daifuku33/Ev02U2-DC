@@ -25,10 +25,17 @@ INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, user_id) VALUES (
 );
 
 INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, user_id) VALUES (
-  1, "Pichu", 06, "Electric", 1
+  2, "Pichu", 06, "Electric", 1
 );
 
 INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, type_2, user_id) VALUES (
   3, "Lucario", 47, "Fighting", "Steel", 1
 );
 
+INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, type_2, user_id) VALUES (
+  4, "Decidueye", 45, "Grass", "Ghost", 1
+);
+
+INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, type_2, user_id) VALUES (
+  5, "Delphox", 38, "Fire", "Psychic", 1
+);

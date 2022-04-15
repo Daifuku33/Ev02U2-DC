@@ -32,19 +32,19 @@ class PokemonController {
 
       res.render('pokemon', {
         id,
-        pkmn_name: pokemon.pkm_name,
-        pkmn_level: pokemon.pkm_level,
-        pkmn_type1: pokemon.type_1,
-        pkmn_type2: pokemon.type_2
+        name: pokemon.name,
+        level: pokemon.level,
+        type1: pokemon.type1,
+        type2: pokemon.type2
       })
     } catch (error) {
       console.log(error)
-      res.status(500).render('500') //
+      res.status(500).render('500')
     }
   }
 
   renderPokemonCreationForm (req, res) {
-    res.render('pokemon-edited') //
+    res.render('pokemon-form')
   }
 
   async renderPokemonUpdateForm (req, res) {
@@ -58,12 +58,12 @@ class PokemonController {
         return
       }
 
-      res.render('pokemon-edited', {
+      res.render('pokemon-form', {
         id,
-        pkmn_name: pokemon.pkm_name,
-        pkmn_level: pokemon.pkm_level,
-        pkmn_type1: pokemon.type_1,
-        pkmn_type2: pokemon.type_2
+        name: pokemon.name,
+        level: pokemon.level,
+        type1: pokemon.type1,
+        type2: pokemon.type2
       })
     } catch (error) {
       console.log(error)
@@ -72,12 +72,12 @@ class PokemonController {
   }
 
   async insertAndRenderPokemon (req, res) {
-    const pkmnName = req.body.pkm_name
-    const pkmLevel = req.body.pkm_level
-    const type1 = req.body.type_1
-    const type2 = req.body.type_2
+    const name = req.body.name
+    const level = req.body.level
+    const type1 = req.body.type1
+    const type2 = req.body.type2
 
-    const pokemon = { pkmnName, pkmLevel, type1, type2 }
+    const pokemon = { name, level, type1, type2 }
 
     try {
       const id = await this.pokemonDao.create(pokemon)
@@ -91,13 +91,13 @@ class PokemonController {
 
   async updateAndRenderPokemon (req, res) {
     const id = req.params.id
-    const pkmnName = req.body.pkm_name
-    const pkmLevel = req.body.pkm_level
-    const type1 = req.body.type_1
-    const type2 = req.body.type_2
+    const name = req.body.name
+    const level = req.body.level
+    const type1 = req.body.type1
+    const type2 = req.body.type2
 
     try {
-      const pokemon = { id, pkmnName, pkmLevel, type1, type2 }
+      const pokemon = { name, level, type1, type2, id }
 
       await this.pokemonDao.update(pokemon)
 
@@ -123,10 +123,7 @@ class PokemonController {
 
       res.render('pokemon-deleted', {
         id,
-        name: pokemon.pkm_name,
-        level: pokemon.pkm_level,
-        type1: pokemon.type_1,
-        type2: pokemon.type_2
+        name: pokemon.name
       })
     } catch (error) {
       console.log(error)

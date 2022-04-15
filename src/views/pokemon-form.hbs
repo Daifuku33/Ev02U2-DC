@@ -1,0 +1,45 @@
+{{> navbar}}
+<div class="container mt-3">
+  <h1>
+    {{#if id}}
+      Actualizando el Pokémon N°{{id}} "{{name}}"
+    {{else}}
+      Crear un nuevo Pokémon
+    {{/if}}
+  </h1>
+  <!--
+    Para el action, si viene un id será un post a /pokemon/:id/update, si no, será un post a /pokemon/create.
+    error 1 - name en cada input
+  -->
+  <form action="/pokemon/{{#if id}}{{id}}/update{{else}}create{{/if}}" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" name="name" aria-describedby="titleHelp" required="true" value="{{name}}">
+      <div id="titleHelp" class="form-text">¡Dale un nombre o cambia su nombre por un apodo!</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Nivel:</label>
+      <input type="number" class="form-control" name="level" aria-describedby="titleHelp" required="true" value="{{level}}">
+      <div id="titleHelp" class="form-text">¡Agrega o actualiza su nivel!</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Tipo 1:</label>
+      <input type="text" 
+        class="form-control" 
+        name="type1" 
+        aria-describedby="titleHelp" 
+        required="true" 
+        value="{{type1}}"
+      >
+      <div id="titleHelp" class="form-text">¿De qué tipo es tu pokémon?</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Tipo 2:</label>
+      <input type="text" class="form-control" name="type2" aria-describedby="titleHelp" required="true" value="{{type2}}">
+      <div id="titleHelp" class="form-text">Si tu pokémon tiene dos tipos agrega el segundo aquí, si no ¡Escribe None!</div>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-dark">Enviar</button>
+    </div>
+  </form>
+</div>

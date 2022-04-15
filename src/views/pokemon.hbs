@@ -6,12 +6,12 @@
          <h4 class="my-0 font-weight-normal">Pokémon</h4>
       </div>
       <div class="card-body">
-         <h1 class="card-title pokemon-card-title">{{pkmn_name}}</h1>
+         <h1 class="card-title pokemon-card-title">{{name}}</h1>
          <ul class="list-unstyled mt-3 mb-4">
-            <li>Nivel: {{pkmn_level}}</li>
-            <li>Tipo 1: {{pkmn_type1}}</li>
-            {{#if pkmn_type2}}
-            <li>Tipo 2: {{pkmn_type2}}</li>
+            <li>Nivel: {{level}}</li>
+            <li>Tipo 1: {{type1}}</li>
+            {{#if type2}}
+            <li>Tipo 2: {{type2}}</li>
              {{else}}
             <li>Tipo 2: None</li>
             {{/if}}

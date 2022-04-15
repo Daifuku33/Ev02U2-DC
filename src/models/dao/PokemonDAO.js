@@ -9,25 +9,26 @@ class PokemonDAO {
   }
 
   async getAll () {
-    const response = await this.db.query('SELECT id, pkm_name, pkm_level, type_1, type_2 FROM pokemon')
+    const response = await this.db.query('SELECT id, name, level, type1, type2 FROM pokemon')
     const rows = response[0]
     return rows
   }
 
   async getById (id) {
-    const response = await this.db.query('SELECT id, pkm_name, pkm_level, type_1, type_2 FROM pokemon WHERE id = ?', [id])
+    const response = await this.db.query('SELECT id, name, level, type1, type2 FROM pokemon WHERE id = ?', [id])
     const rows = response[0]
     return rows[0]
   }
 
+  // siempre camelcase
   async create (pokemon) {
-    const response = await this.db.query('INSERT INTO pokemon (pkm_name, pkm_level, type_1, type_2) VALUES (?, ?, ?, ?)', [pokemon.pkm_name, pokemon.pkm_level, pokemon.type_1, pokemon.type_2])
+    const response = await this.db.query('INSERT INTO pokemon (name, level, type1, type2) VALUES (?, ?, ?, ?)', [pokemon.name, pokemon.level, pokemon.type1, pokemon.type2])
     const result = response[0]
     return result.insertId
   }
 
   async update (pokemon) {
-    const response = await this.db.query('UPDATE pokemon SET pkm_name = ?, pkm_level = ?, type_1 = ?, type_2 = ? WHERE id = ?', [pokemon.pkm_name, pokemon.pkm_level, pokemon.type_1, pokemon.type_2])
+    const response = await this.db.query('UPDATE pokemon SET name = ?, level = ?, type1 = ?, type2 = ? WHERE id = ?', [pokemon.name, pokemon.level, pokemon.type1, pokemon.type2, pokemon.id])
     const result = response[0]
     return result
   }
