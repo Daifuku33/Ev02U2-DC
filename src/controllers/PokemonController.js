@@ -32,10 +32,10 @@ class PokemonController {
 
       res.render('pokemon', {
         id,
-        name: pokemon.pkmn_name,
-        level: pokemon.pkm_level,
-        type1: pokemon.type_1,
-        type2: pokemon.type_2
+        pkmn_name: pokemon.pkm_name,
+        pkmn_level: pokemon.pkm_level,
+        pkmn_type1: pokemon.type_1,
+        pkmn_type2: pokemon.type_2
       })
     } catch (error) {
       console.log(error)
@@ -44,7 +44,7 @@ class PokemonController {
   }
 
   renderPokemonCreationForm (req, res) {
-    res.render('pokemon-form') //
+    res.render('pokemon-edited') //
   }
 
   async renderPokemonUpdateForm (req, res) {
@@ -58,12 +58,12 @@ class PokemonController {
         return
       }
 
-      res.render('pokemon-form', {
+      res.render('pokemon-edited', {
         id,
-        name: pokemon.pkmn_name,
-        level: pokemon.pkm_level,
-        type1: pokemon.type_1,
-        type2: pokemon.type_2
+        pkmn_name: pokemon.pkm_name,
+        pkmn_level: pokemon.pkm_level,
+        pkmn_type1: pokemon.type_1,
+        pkmn_type2: pokemon.type_2
       })
     } catch (error) {
       console.log(error)
@@ -72,7 +72,7 @@ class PokemonController {
   }
 
   async insertAndRenderPokemon (req, res) {
-    const pkmnName = req.body.pkmn_name
+    const pkmnName = req.body.pkm_name
     const pkmLevel = req.body.pkm_level
     const type1 = req.body.type_1
     const type2 = req.body.type_2
@@ -91,7 +91,7 @@ class PokemonController {
 
   async updateAndRenderPokemon (req, res) {
     const id = req.params.id
-    const pkmnName = req.body.pkmn_name
+    const pkmnName = req.body.pkm_name
     const pkmLevel = req.body.pkm_level
     const type1 = req.body.type_1
     const type2 = req.body.type_2
@@ -123,7 +123,7 @@ class PokemonController {
 
       res.render('pokemon-deleted', {
         id,
-        name: pokemon.pkmn_name,
+        name: pokemon.pkm_name,
         level: pokemon.pkm_level,
         type1: pokemon.type_1,
         type2: pokemon.type_2

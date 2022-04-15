@@ -1,13 +1,33 @@
 {{> navbar}}
-<div class="container mt-3">
-  <h1>{{pkm_name}}</h1>
-  <div class="mt-3 d-flex gap-2">
-    <a href="/pokemon/{{id}}/update">
-      <button class="btn btn-primary btn-sm">Editar</button>
-    </a>
-    <form action="/pokemon/{{id}}/delete" method="POST">
-      <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-    </form>
-  </div>
-  {{> backhome}}
+<div class="container">
+<div class="card-deck mb-3 text-center">
+   <div class="card mb-4 box-shadow">
+      <div class="card-header">
+         <h4 class="my-0 font-weight-normal">Pokémon</h4>
+      </div>
+      <div class="card-body">
+         <h1 class="card-title pokemon-card-title">{{pkmn_name}}</h1>
+         <ul class="list-unstyled mt-3 mb-4">
+            <li>Nivel: {{pkmn_level}}</li>
+            <li>Tipo 1: {{pkmn_type1}}</li>
+            {{#if pkmn_type2}}
+            <li>Tipo 2: {{pkmn_type2}}</li>
+             {{else}}
+            <li>Tipo 2: None</li>
+            {{/if}}
+            <br>
+            <li>¡Qué lindo pokémon!</li>
+            <li>¿Qué te gustaría hacer con él?</li>
+            <br>
+            <a href="/pokemon/{{id}}/update">
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button>
+            </a>
+            <form action="/pokemon/{{id}}/delete" method="POST">
+               <button type="submit" class="btn btn-lg btn-block btn-outline-danger">Eliminar</button>
+            </form>
+          </ul>
+      </div>
+   </div>
+   {{> backhome}}
 </div>
+
