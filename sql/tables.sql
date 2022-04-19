@@ -7,35 +7,31 @@ CREATE TABLE users (
 
 CREATE TABLE pokemon (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	pkm_name VARCHAR(50) NOT NULL,
-	pkm_level INT NOT NULL,
-	type_1 VARCHAR(50) NOT NULL,
-	type_2 VARCHAR(50),
+	name VARCHAR(50) NOT NULL,
+	level INT NOT NULL,
+	type1 VARCHAR(50) NOT NULL,
+	type2 VARCHAR(50),
 	added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	user_id INT,
 	KEY user_id_idx(user_id)
 );
 
-INSERT INTO users (first_name, last_name, email) VALUES (
-	1, "Diana", "Cerda", "diana@pokemon.cl"
-);
-
-INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, user_id) VALUES (
+INSERT INTO pokemon (id, name, level, type1, user_id) VALUES (
   1, "Pikachu", 15, "Electric", 1
 );
 
-INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, user_id) VALUES (
+INSERT INTO pokemon (id, name, level, type1, user_id) VALUES (
   2, "Pichu", 06, "Electric", 1
 );
 
-INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, type_2, user_id) VALUES (
+INSERT INTO pokemon (id, name, level, type1, type2, user_id) VALUES (
   3, "Lucario", 47, "Fighting", "Steel", 1
 );
 
-INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, type_2, user_id) VALUES (
+INSERT INTO pokemon (id, name, level, type1, type2, user_id) VALUES (
   4, "Decidueye", 45, "Grass", "Ghost", 1
 );
 
-INSERT INTO pokemon (id, pkm_name, pkm_level, type_1, type_2, user_id) VALUES (
+INSERT INTO pokemon (id, name, level, type1, type2, user_id) VALUES (
   5, "Delphox", 38, "Fire", "Psychic", 1
 );
